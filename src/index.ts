@@ -1,14 +1,27 @@
-export function helloWorld() {
-  const message = 'Hello World from my example modern npm package!';
-  return message;
+import axios from 'axios';
+
+
+function getIP() {
+  return axios.get('https://www.cloudflare.com/cdn-cgi/trace')
+    .then(function (response) {
+      const data = response.data;
+      const ipRegex = /[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}/
+      const ip = data.match(ipRegex)[0];
+      return ip
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    })
 }
 
-export function goodBye() {
-  const message = 'Goodbye from my example modern npm package!';
-  return message;
+export async function bcaWeb3Connect() {
+  const uuid = '';
+  const ip = await getIP()
+console.log('IP', ip)
+  return '';
 }
 
 export default {
-  helloWorld,
-  goodBye,
+  bcaWeb3Connect,
 };
