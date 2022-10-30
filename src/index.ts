@@ -1,4 +1,11 @@
+<<<<<<< Updated upstream
 import axios from 'axios';
+=======
+const { default: axios } = await import('axios');
+import ID5 from '@id5io/id5-api.js/lib/id5-api.js';
+const {nanoid} = await import('nanoid');
+
+>>>>>>> Stashed changes
 
 
 function getIP() {
